@@ -11,7 +11,7 @@ class MyDocument extends Document {
       title: 'Luca Bandini - Website',
       description: 'Website, portfolio and Social Links',
       image:
-        'https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png'
+        '#'
     }
 
     return (
