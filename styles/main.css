@@ -24,6 +24,7 @@ body {
   font-variation-settings: 'wght' 450;
   font-variant: common-ligatures contextual;
   letter-spacing: -0.02em;
+  color: #3D405B;
   background-color: #F4F1DE;
 }
 b,
@@ -33,12 +34,15 @@ h4,
 h5,
 h6 {
   font-variation-settings: 'wght' 650;
+  color: #E07A5F;
 }
 h1 {
   font-variation-settings: 'wght' 850;
+  color: #E07A5F;
 }
 h2 {
   font-variation-settings: 'wght' 750;
+  color: #E07A5F;
 }
 
 @media screen and (min-device-pixel-ratio: 1.5),
@@ -49,9 +53,6 @@ h2 {
   }
 }
 
-div {
-  background-color: #81B29A;
-}
 
 details summary {
   cursor: pointer;
@@ -62,9 +63,9 @@ img.next-image {
 }
 
 .prose a {
-  color: #0074de;
+  color: #E07A5F;
 }
 
 .nav-line .nav-link {
-  color: #69778c;
+  color: #F2CC8F;
 }
