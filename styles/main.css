@@ -49,6 +49,10 @@ h2 {
   }
 }
 
+div {
+  background-color: #81B29A;
+}
+
 details summary {
   cursor: pointer;
 }
