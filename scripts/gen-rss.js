@@ -10,29 +10,49 @@ async function generate() {
     feed_url: 'https://lucabandini.it/feed.xml'
   })
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'posts'))
+  try {
+    const postsDir = path.join(__dirname, '..', 'pages', 'posts')
+    
+    // Check if directory exists
+    try {
+      await fs.access(postsDir)
+    } catch {
+      // Create directory if it doesn't exist
+      await fs.mkdir(postsDir, { recursive: true })
+      console.log('Created posts directory')
+      // Exit early since we know it's empty
+      await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
+      return
+    }
 
-  await Promise.all(
-    posts.map(async (name) => {
-      if (name.startsWith('index.')) return
+    const posts = await fs.readdir(postsDir)
 
-      const content = await fs.readFile(
-        path.join(__dirname, '..', 'pages', 'posts', name)
-      )
-      const frontmatter = matter(content)
+    await Promise.all(
+      posts.map(async (name) => {
+        if (name.startsWith('index.')) return
 
-      feed.item({
-        title: frontmatter.data.title,
-        url: '/posts/' + name.replace(/\.mdx?/, ''),
-        date: frontmatter.data.date,
-        description: frontmatter.data.description,
-        categories: frontmatter.data.tag.split(', '),
-        author: frontmatter.data.author
+        const content = await fs.readFile(
+          path.join(postsDir, name)
+        )
+        const frontmatter = matter(content)
+
+        feed.item({
+          title: frontmatter.data.title,
+          url: '/posts/' + name.replace(/\.mdx?/, ''),
+          date: frontmatter.data.date,
+          description: frontmatter.data.description,
+          categories: frontmatter.data.tag?.split(', ') || [],
+          author: frontmatter.data.author
+        })
       })
-    })
-  )
+    )
 
-  await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
+    await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
+  } catch (error) {
+    console.error('Error generating RSS feed:', error)
+    // Create an empty feed file to prevent build failures
+    await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }))
+  }
 }
 
 generate()
