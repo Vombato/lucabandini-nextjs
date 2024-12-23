@@ -26,5 +26,9 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "resolutions": {
+    "http-cache-semantics": "^4.1.1",
+    "got": "^11.8.5"
   }
 }
