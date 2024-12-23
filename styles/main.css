@@ -64,8 +64,49 @@ img.next-image {
 
 .prose a {
   color: #5F797B;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.prose a:hover {
+  border-bottom: 1px solid #5F797B;
+  opacity: 0.8;
 }
 
 .nav-line .nav-link {
   color: #F2CC8F;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.profile-image {
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 4px;
+  background: #F4F1DE;
+  color: #5F797B;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #E07A5F;
+  color: #F4F1DE;
 }
