@@ -25,7 +25,7 @@
     "semi": false
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "resolutions": {
     "http-cache-semantics": "^4.1.1",
