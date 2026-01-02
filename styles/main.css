@@ -137,15 +137,19 @@ img.next-image {
   margin: 0;
 }
 
-.prose a {
-  color: var(--link-color);
+a {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
   transition: all 0.2s ease;
-  border-bottom: 1px solid transparent;
 }
 
-.prose a:hover {
-  border-bottom: 1px solid var(--link-color);
-  opacity: 0.8;
+a:hover {
+  color: var(--link-color);
+  text-decoration-thickness: 2px;
+  opacity: 1;
 }
 
 .nav-line .nav-link {
