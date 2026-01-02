@@ -5,6 +5,7 @@
   font-display: block;
   src: url(/fonts/Inter-roman.latin.var.woff2) format('woff2');
 }
+
 @font-face {
   font-family: 'Inter var';
   font-style: italic;
@@ -26,7 +27,31 @@ body {
   letter-spacing: -0.02em;
   color: #3D405B;
   background-color: #F4F1DE;
+  line-height: 1.7;
+  font-size: 1.1rem;
 }
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #5F797B;
+  opacity: 0.3;
+  margin: 2.5rem 0;
+}
+
 b,
 strong,
 h3,
@@ -36,17 +61,22 @@ h6 {
   font-variation-settings: 'wght' 650;
   color: #5F797B;
 }
+
 h1 {
   font-variation-settings: 'wght' 850;
   color: #E07A5F;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
+
 h2 {
   font-variation-settings: 'wght' 750;
   color: #5F797B;
 }
 
 @media screen and (min-device-pixel-ratio: 1.5),
-  screen and (min-resolution: 1.5dppx) {
+screen and (min-resolution: 1.5dppx) {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -78,35 +108,62 @@ img.next-image {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-main {
-  animation: fadeIn 0.5s ease-out;
-}
+
 
 .profile-image {
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
-.profile-image:hover {
-  transform: scale(1.02);
-}
+
 
 .social-links a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border-radius: 4px;
-  background: #F4F1DE;
   color: #5F797B;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
 .social-links a:hover {
-  background: #E07A5F;
-  color: #F4F1DE;
+  border-bottom: 1px solid #E07A5F;
+}
+
+/* Video Section */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.video-caption {
+  font-size: 0.9rem;
+  color: #5F797B;
+  text-align: center;
+  margin: 0;
 }

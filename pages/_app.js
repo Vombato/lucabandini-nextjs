@@ -21,7 +21,9 @@ export default function Nextra({ Component, pageProps }) {
           crossOrigin="anonymous"
         />
       </Head>
-      <Component {...pageProps} />
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
+        <Component {...pageProps} />
+      </div>
     </>
   )
 }
